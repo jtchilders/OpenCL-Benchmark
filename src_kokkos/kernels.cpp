@@ -1,5 +1,6 @@
 #include "kernels.hpp"
 
+
 // Kernel implementations
 
 void kernel_double(Kokkos::View<float*> data) {
@@ -31,8 +32,8 @@ void kernel_half(Kokkos::View<Kokkos::Experimental::half_t*> data) {
       Kokkos::Experimental::half_t x = static_cast<Kokkos::Experimental::half_t>(i);
       Kokkos::Experimental::half_t y = static_cast<Kokkos::Experimental::half_t>(i % 64);
       for (uint j = 0u; j < 1024u; j++) {
-         x = fma(y, x, y);
-         y = fma(x, y, x);
+         x = custom_fma(y, x, y);
+         y = custom_fma(x, y, x);
       }
       data(i) = y;
    });
