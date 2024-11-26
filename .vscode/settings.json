@@ -1,0 +1,6 @@
+{
+   "C_Cpp.default.includePath": [
+      "/Users/jchilders/anl/lcf/kokkos/install/include",
+      "/Users/jchilders/anl/lcf/OpenCL-Benchmark/src_kokkos"
+   ]
+}
